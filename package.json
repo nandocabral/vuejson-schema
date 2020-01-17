@@ -1,0 +1,41 @@
+{
+  "name": "vue-components",
+  "description": "Componentes hechos con amor y con/para vue.",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve playground/main.js",
+    "build": "vue-cli-service build",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "dependencies": {
+    "core-js": "^2.6.5",
+    "daterangepicker": "^3.0.5",
+    "cleave.js": "^1.5.3",
+    "dropzone": "^5.5.1",
+    "jquery": "^3.4.1",
+    "lodash": "^4.17.15",
+    "promise-queue": "^2.2.5",
+    "select2": "^4.0.9",
+    "select2-theme-bootstrap4": "^0.2.0-beta.4"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.10.0",
+    "@vue/cli-plugin-eslint": "^3.10.0",
+    "@vue/cli-service": "^4.1.2",
+    "@vue/eslint-config-prettier": "^5.0.0",
+    "axios": "^0.19.0",
+    "babel-eslint": "^10.0.1",
+    "bootstrap": "^4.3.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "prettier": "^1.18.2",
+    "prismjs": "^1.17.1",
+    "vue-prism-editor": "^0.3.0",
+    "vue-template-compiler": "^2.6.10",
+    "vuepress": "^1.0.3"
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "title": "Customer Profile",
+  "description": "...",
+  "type": "object",
+  "properties": {
+    "checkbox": {
+      "title": "Checkbox",
+      "description": "Something desc ...",
+      "type": "string",
+      "enum": [
+        "Male",
+        "Female"
+      ],
+      "widget": {
+        "type": "kly-checkbox",
+        "props": {}
+      }
+    },
+    "checkbox-single": {
+      "title": "Checkbox single with custom value",
+      "description": "Are you agree?",
+      "type": "string",
+      "widget": {
+        "type": "kly-checkbox",
+        "props": {
+          "true-value": "yes",
+          "false-value": "not"
+        }
+      }
+    },
+    "checkbox-toggle": {
+      "title": "Checkbox toggle",
+      "type": "string",
+      "widget": {
+        "type": "kly-toggle-checkbox",
+        "props": {
+          "true-value": true,
+          "false-value": false
+        }
+      }
+    }
+  }
+}

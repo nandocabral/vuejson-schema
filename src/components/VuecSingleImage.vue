@@ -1,21 +1,21 @@
 <template>
-  <div :id="`kly-${key}`" class="kly-single-image">
-    <label class="kly-dropzone-label" :for="key" v-if="labelable">
+  <div :id="`vuec-${key}`" class="vuec-single-image">
+    <label class="vuec-dropzone-label" :for="key" v-if="labelable">
       {{ schema.title }}
     </label>
-    <p class="kly-dropzone-help" v-if="helpable">
+    <p class="vuec-dropzone-help" v-if="helpable">
       {{ schema.description }}
     </p>
-    <div class="kly-single-image__container">
-      <div class="kly-single-image__box">
+    <div class="vuec-single-image__container">
+      <div class="vuec-single-image__box">
         <div
-          class="kly-single-image__elcontainer"
+          class="vuec-single-image__elcontainer"
           :style="{ 'background-image': `url(${imageData})` }"
           @click="chooseImage"
         >
           <div
             v-if="imageName.includes('.pdf')"
-            class="kly-single-image__placeholder"
+            class="vuec-single-image__placeholder"
           >
             <svg
               width="24"
@@ -30,12 +30,12 @@
             </svg>
             Documento
           </div>
-          <span v-if="!imageData" class="kly-single-image__placeholder">
+          <span v-if="!imageData" class="vuec-single-image__placeholder">
             Click para seleccionar y/o reemplazar el elemento
           </span>
           <input
             ref="fileInput"
-            class="kly-single-image__input"
+            class="vuec-single-image__input"
             type="file"
             :id="key"
             :name="key"
@@ -44,11 +44,11 @@
           <button
             v-if="imageData"
             type="button"
-            class="kly-single-image__closebutton"
+            class="vuec-single-image__closebutton"
             @click="clearImage"
           >
             <svg
-              class="kly-single-image__closeicon"
+              class="vuec-single-image__closeicon"
               role="button"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
@@ -60,14 +60,14 @@
             </svg>
           </button>
         </div>
-        <p v-if="imageName" class="kly-single-image__name">
+        <p v-if="imageName" class="vuec-single-image__name">
           {{ imageName }}
         </p>
       </div>
-      <div v-if="urlImage" class="kly-single-image__box">
+      <div v-if="urlImage" class="vuec-single-image__box">
         <div
           v-if="imageName.includes('.pdf')"
-          class="kly-single-image__elcontainer"
+          class="vuec-single-image__elcontainer"
         >
           <svg
             width="24"
@@ -83,7 +83,7 @@
         </div>
         <div
           v-else
-          class="kly-single-image__elcontainer"
+          class="vuec-single-image__elcontainer"
           :style="{ 'background-image': `url(${urlGet}${urlImage})` }"
         >
           <p style="text-align: center;">
@@ -92,7 +92,7 @@
         </div>
       </div>
     </div>
-    <p class="kly-single-image__helptext">
+    <p class="vuec-single-image__helptext">
       <small>Formato(s) válido(s): {{ typeFiles }}</small>
     </p>
   </div>
@@ -102,7 +102,7 @@
 import get from "lodash/get";
 
 export default {
-  name: "KlySingleImage",
+  name: "vuecSingleImage",
   props: {
     schema: {
       type: Object,
@@ -199,7 +199,7 @@ export default {
 };
 </script>
 <style scoped>
-.kly-single-image__container {
+.vuec-single-image__container {
   display: flex;
   display: -webkit-box;
   flex-direction: row;
@@ -207,23 +207,23 @@ export default {
   align-items: center;
   justify-content: center;
 }
-.kly-single-image__box {
+.vuec-single-image__box {
   -webkit-box-flex: 1 1 0%;
   -moz-box-flex: 1 1 0%;
   flex: 1 1 0%;
 }
-.kly-single-image__name {
+.vuec-single-image__name {
   margin-top: 0.8rem;
   font-size: 0.8rem;
   font-style: italic;
 }
-.kly-single-image__closeicon {
+.vuec-single-image__closeicon {
   height: 1.3rem;
   width: 1.3rem;
   fill: #ffffff;
   margin: 0 auto;
 }
-.kly-single-image__closebutton {
+.vuec-single-image__closebutton {
   position: absolute;
   top: -0.8rem;
   right: -0.8rem;
@@ -233,7 +233,7 @@ export default {
   height: 3rem;
   width: 3rem;
 }
-.kly-single-image__elcontainer {
+.vuec-single-image__elcontainer {
   display: block;
   width: 150px;
   height: 150px;
@@ -246,13 +246,13 @@ export default {
   background-position: center center;
   background-repeat: no-repeat;
 }
-.kly-single-image__input {
+.vuec-single-image__input {
   display: none;
 }
 .help-text {
   text-align: center;
 }
-.kly-single-image__placeholder {
+.vuec-single-image__placeholder {
   background: #f0f0f0;
   width: 100%;
   height: 100%;
@@ -263,7 +263,7 @@ export default {
   align-items: center;
   color: #333;
 }
-.kly-single-image__placeholder:hover {
+.vuec-single-image__placeholder:hover {
   background: #e0e0e0;
 }
 </style>

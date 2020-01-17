@@ -18,7 +18,7 @@
 import { cloneDeep, get } from "lodash";
 
 export default {
-  name: "kly-form",
+  name: "vuec-form",
   props: {
     schema: {
       type: Object,
@@ -42,12 +42,12 @@ export default {
     getFieldType(schema) {
       let type = get(schema, "widget.type");
       if ((schema.type === "object" || schema.type === "array") && !type) {
-        return `kly-${schema.type}`;
+        return `vuec-${schema.type}`;
       }
       if (type) {
-        return type.startsWith("kly") ? type : "kly-any";
+        return type.startsWith("vuec") ? type : "vuec-any";
       }
-      return "kly-input";
+      return "vuec-input";
     }
   },
   computed: {

@@ -23,7 +23,7 @@
           "title": "uno",
           "type": "integer",
           "widget": {
-            "type": "kly-textarea",
+            "type": "vuec-textarea",
             "props": {
               "class": "form-control"
             }
@@ -33,12 +33,9 @@
           "title": "Checkbox",
           "description": "Enter your checkbox",
           "type": "string",
-          "enum": [
-            "Male",
-            "Female"
-          ],
+          "enum": ["Male", "Female"],
           "widget": {
-            "type": "kly-checkbox",
+            "type": "vuec-checkbox",
             "props": {}
           }
         }
@@ -99,7 +96,7 @@
       "title": "Custom array with objects of any type in table",
       "type": "array",
       "widget": {
-        "type": "kly-object-array"
+        "type": "vuec-object-array"
       },
       "items": {
         "title": "Object",

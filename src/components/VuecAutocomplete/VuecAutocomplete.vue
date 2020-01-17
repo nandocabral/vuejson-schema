@@ -1,6 +1,6 @@
 <template>
-  <div :id="`kly-${key}`" class="kly-select">
-    <label class="kly-select-label" :for="key" v-if="labelable">
+  <div :id="`vuec-${key}`" class="vuec-select">
+    <label class="vuec-select-label" :for="key" v-if="labelable">
       {{ schema.title }}
     </label>
     <select
@@ -10,7 +10,7 @@
       v-model="localValue"
       v-bind="widgetProps"
     />
-    <span class="kly-select-help" v-if="helpable">
+    <span class="vuec-select-help" v-if="helpable">
       {{ schema.description }}
     </span>
   </div>
@@ -25,7 +25,7 @@ import "select2";
 import $ from "jquery";
 
 export default {
-  name: "klyAutocomplete",
+  name: "vuecAutocomplete",
   props: {
     schema: {
       type: Object,

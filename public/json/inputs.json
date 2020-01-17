@@ -18,7 +18,7 @@
       "description": "Enter your number",
       "type": "string",
       "widget": {
-        "type": "kly-money",
+        "type": "vuec-money",
         "props": {
           "decimal": ".",
           "thousands": ",",

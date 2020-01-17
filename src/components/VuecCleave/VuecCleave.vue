@@ -1,6 +1,6 @@
 <template>
-  <div :id="`kly-${key}`" class="kly-input">
-    <label class="kly-input-label" :for="key" v-if="labelable">{{
+  <div :id="`vuec-${key}`" class="vuec-input">
+    <label class="vuec-input-label" :for="key" v-if="labelable">{{
       schema.title
     }}</label>
     <input
@@ -12,7 +12,9 @@
       v-bind="widgetProps"
       autocomplete="off"
     />
-    <span class="kly-input-help" v-if="helpable">{{ schema.description }}</span>
+    <span class="vuec-input-help" v-if="helpable">{{
+      schema.description
+    }}</span>
   </div>
 </template>
 
@@ -24,7 +26,7 @@ import { get, assign } from "lodash";
 import defaults from "./options.js";
 
 export default {
-  name: "KlyCleave",
+  name: "vuecCleave",
   props: {
     schema: {
       required: true,

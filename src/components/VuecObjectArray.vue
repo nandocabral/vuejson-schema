@@ -1,11 +1,11 @@
 <template>
-  <div :id="`kly-object-array-${key}`" class="kly-object-array">
-    <label class="kly-array-label" v-if="labelable">{{ schema.title }}</label>
-    <div class="kly-object-array__header">
+  <div :id="`vuec-object-array-${key}`" class="vuec-object-array">
+    <label class="vuec-array-label" v-if="labelable">{{ schema.title }}</label>
+    <div class="vuec-object-array__header">
       <div
         v-for="(el, schemaKey) in schema.items.properties"
         :key="schemaKey"
-        class="kly-object-array--item"
+        class="vuec-object-array--item"
       >
         <component
           :key="schemaKey"
@@ -22,9 +22,9 @@
         </button>
       </div>
     </div>
-    <div class="kly-object-array__body">
-      <table class="kly-object-array--table">
-        <thead class="kly-object-array--table-head">
+    <div class="vuec-object-array__body">
+      <table class="vuec-object-array--table">
+        <thead class="vuec-object-array--table-head">
           <tr>
             <th
               v-for="(head, headKey) in schema.items.properties"
@@ -35,7 +35,7 @@
             <th></th>
           </tr>
         </thead>
-        <tbody class="kly-object-array--table-head">
+        <tbody class="vuec-object-array--table-head">
           <tr v-for="(value, valueKey) in localValue" :key="`tr_${valueKey}`">
             <td
               v-for="(obj, key, i) in schema.items.properties"
@@ -59,7 +59,7 @@
 import { get } from "lodash";
 
 export default {
-  name: "KlyObjectArray",
+  name: "vuecObjectArray",
   props: {
     schema: {
       type: Object,
@@ -89,13 +89,13 @@ export default {
     },
     getFieldType(schema) {
       if (schema.type === "object" || schema.type === "array") {
-        return `kly-${schema.type}`;
+        return `vuec-${schema.type}`;
       }
       let type = get(schema, "widget.type");
       if (type) {
-        return type.startsWith("kly") ? type : "kly-any";
+        return type.startsWith("vuec") ? type : "vuec-any";
       }
-      return "kly-input";
+      return "vuec-input";
     },
     addItem() {
       this.localValue.push(Object.assign({}, this.model));

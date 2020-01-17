@@ -1,10 +1,24 @@
 <template>
-  <div :id="`kly-${key}`" class="kly-field">
-    <label class="kly-field-label" :for="key" v-if="labelable">
+  <div :id="`vuec-${key}`" class="vuec-input">
+    <label class="vuec-input-label" :for="key" v-if="labelable">
       {{ schema.title }}
     </label>
-    <textarea :id="key" :name="key" v-model="localValue" v-bind="widgetProps" />
-    <span class="kly-field-help" v-if="helpable">{{ schema.description }}</span>
+    <input
+      ref="input"
+      :id="key"
+      :name="key"
+      v-model="localValue"
+      v-bind="widgetProps"
+      autocomplete="off"
+    />
+    <p v-if="widgetProps.showpass === true" class="vuec-password__current">
+      <small>
+        {{ localValue }}
+      </small>
+    </p>
+    <span class="vuec-input-help" v-if="helpable">
+      {{ schema.description }}
+    </span>
   </div>
 </template>
 
@@ -12,14 +26,15 @@
 import { get } from "lodash";
 
 export default {
-  name: "KlyTextarea",
+  name: "vuecInput",
   props: {
     schema: {
       type: Object,
       default: () => ({})
     },
     value: {
-      type: String
+      type: [String, Number]
+      // default: ''
     }
   },
   methods: {
@@ -30,6 +45,12 @@ export default {
   computed: {
     key() {
       return this.$vnode.data.key;
+    },
+    encodingToBase64() {
+      return this.get("contentEncoding") === "base64";
+    },
+    isInputFile() {
+      return this.get("widget.props.type") === "file";
     },
     labelable() {
       return (
@@ -48,6 +69,9 @@ export default {
     },
     localValue: {
       get() {
+        if (this.isInputFile) {
+          return "";
+        }
         return this.value || "";
       },
       set(newValue) {

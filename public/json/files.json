@@ -3,63 +3,16 @@
   "description": "...",
   "type": "object",
   "properties": {
-    "single": {
-      "title": "Imagen de perfil",
-      "description": "Introduzca su imagen de perfil",
-      "type": "string",
-      "widget": {
-        "type": "kly-dropzone",
-        "props": {
-          "archiving": {
-            "authorization": "Basic ZGVzYXJyb2xsb0BzdHguY29tLm14OmNVcVI1bjVyaFpKV1ZsaUh3bVFOXw==",
-            "getUrl": "http://localhost:8090//archiving:siaffi/flujos:consultar",
-            "updateUrl": "http://localhost:8090//archiving:siaffi/flujos:actualizar",
-            "clearUrl": "http://localhost:8090//archiving:siaffi/flujos:limpiar",
-            "getFIleUrl": "http://localhost:8090//archiving:siaffi/archivos:obtener?file=",
-            "payloadPath": "payload[main][image]",
-            "params": {
-              "schema": "imageable",
-              "folio": 33,
-              "serie": "a"
-            }
-          }
-        }
-      }
-    },
     "single-64": {
       "title": "Single 64 image",
       "description": "Single image",
       "type": "string",
       "widget": {
-        "type": "kly-single-image",
+        "type": "vuec-single-image",
         "props": {
           "archiving": {
             "getFileUrl": "http://newton.klayware.com/colima/archivos:obtener?file=",
             "typesFiles": ["pdf"]
-          }
-        }
-      }
-    },
-    "multiple": {
-      "title": "Documentos",
-      "description": "Multiples imagenes y/ documentos",
-      "type": "array",
-      "widget": {
-        "type": "kly-dropzone",
-        "props": {
-          "archiving": {
-            "authorization": "Basic ZGVzYXJyb2xsb0BzdHguY29tLm14OmNVcVI1bjVyaFpKV1ZsaUh3bVFOXw==",
-            "url": "http://localhost:8090//archiving:siaffi/flujos:consultar",
-            "getUrl": "http://localhost:8090//archiving:siaffi/flujos:consultar",
-            "updateUrl": "http://localhost:8090//archiving:siaffi/flujos:actualizar",
-            "clearUrl": "http://localhost:8090//archiving:siaffi/flujos:limpiar",
-            "getFIleUrl": "http://localhost:8090//archiving:siaffi/archivos:obtener?file=",
-            "payloadPath": "payload[main][images][0][images-nested]",
-            "params": {
-              "schema": "imageable",
-              "folio": 33,
-              "serie": "a"
-            }
           }
         }
       }

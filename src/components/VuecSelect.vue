@@ -1,20 +1,23 @@
 <template>
-  <div :id="`kly-${key}`" class="kly-field">
-    <label class="kly-field-label" v-if="labelable">{{ schema.title }}</label>
-    <div class="kly-radio" v-for="option in schema.enum" :key="option">
-      <label class="kly-radio-label" :for="`${key}-${option}`">
-        <input
-          type="radio"
-          :id="`${key}-${option}`"
-          :name="key"
-          v-model="localValue"
-          :value="option"
-          v-bind="widgetProps"
-        />
+  <div :id="`vuec-${key}`" class="vuec-select">
+    <label class="vuec-select-label" :for="key" v-if="labelable">
+      {{ schema.title }}
+    </label>
+    <select
+      ref="select"
+      :id="key"
+      :name="key"
+      v-model="localValue"
+      v-bind="widgetProps"
+    >
+      <option v-if="!this.isMultiple()" value disabled>...</option>
+      <option v-for="option in getItems()" :key="option">
         {{ option }}
-      </label>
-    </div>
-    <span class="kly-field-help" v-if="helpable">{{ schema.description }}</span>
+      </option>
+    </select>
+    <span class="vuec-select-help" v-if="helpable">
+      {{ schema.description }}
+    </span>
   </div>
 </template>
 
@@ -22,19 +25,26 @@
 import { get } from "lodash";
 
 export default {
-  name: "klyRadio",
+  name: "vuecSelect",
   props: {
     schema: {
       type: Object,
       default: () => ({})
     },
     value: {
-      type: String
+      type: [String, Array]
+      // default: ''
     }
   },
   methods: {
     get(path, defaultValue = undefined) {
       return get(this, `schema.${path}`, defaultValue);
+    },
+    isMultiple() {
+      return this.schema.type == "array";
+    },
+    getItems() {
+      return this.get("enum", this.get("items.enum"));
     }
   },
   computed: {
@@ -58,7 +68,7 @@ export default {
     },
     localValue: {
       get() {
-        return this.value || "";
+        return this.value || (this.isMultiple() ? [] : "");
       },
       set(newValue) {
         this.$emit("update", newValue);

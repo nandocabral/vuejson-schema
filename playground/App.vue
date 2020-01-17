@@ -28,9 +28,9 @@
           method="post"
           enctype="multipart/form-data"
         >
-          <kly-form :schema="schema" :value="model" @change="onChange">
+          <vuec-form :schema="schema" :value="model" @change="onChange">
             <button type="submit" class="btn btn-primary">Enviar</button>
-          </kly-form>
+          </vuec-form>
         </form>
       </div>
       <div class="col-4">
@@ -103,7 +103,7 @@ export default {
   padding: 10px;
   border: 1px solid #ccc;
 }
-.kly-input {
+.vuec-input {
   padding: 10px 0px;
   border-bottom: 1px solid lightgray;
 }

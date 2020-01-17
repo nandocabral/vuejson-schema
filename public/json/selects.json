@@ -7,7 +7,7 @@
       "title": "Custom array of strings",
       "type": "array",
       "widget": {
-        "type": "kly-autocomplete",
+        "type": "vuec-autocomplete",
         "props": {
           "minimumInputLength": 2,
           "archiving": {
@@ -17,30 +17,14 @@
             "key": "id",
             "value": "payload->estado",
             "limit": 5,
-            "filter": [{
-              "field": "recolector_id",
-              "operator": "=",
-              "value": "edit"
-            }]
+            "filter": [
+              {
+                "field": "recolector_id",
+                "operator": "=",
+                "value": "edit"
+              }
+            ]
           }
-        }
-      }
-    },
-    "ajax-auto-select": {
-      "title": "Custom of objects or strings with AJAX",
-      "type": "array",
-      "widget": {
-        "type": "kly-auto-select",
-        "props": {
-          "minimumInputLength": 2,
-          "archiving": {
-            "url": "http://localhost:8090//archiving:siaffi/catalogos:consultar",
-            "schema": "estados",
-            "key": "id",
-            "value": "payload->estado",
-            "limit": 5
-          },
-          "class": "form-control"
         }
       }
     },
@@ -48,7 +32,7 @@
       "title": "Custom array of strings",
       "type": "string",
       "widget": {
-        "type": "kly-autocomplete",
+        "type": "vuec-autocomplete",
         "props": {
           "archiving": {
             "authorization": "Basic ZGVzYXJyb2xsb0BzdHguY29tLm14OmNVcVI1bjVyaFpKV1ZsaUh3bVFOXw==",
@@ -65,7 +49,7 @@
       "title": "Custom array of strings",
       "type": "array",
       "widget": {
-        "type": "kly-autocomplete",
+        "type": "vuec-autocomplete",
         "props": {
           "multiple": true,
           "class": "form-control"
@@ -73,24 +57,16 @@
       },
       "items": {
         "type": "string",
-        "enum": [
-          "Pedro",
-          "Paco",
-          "Luis"
-        ]
+        "enum": ["Pedro", "Paco", "Luis"]
       }
     },
     "autocomplete": {
       "title": "Autocomplete",
       "description": "Select one option",
       "type": "string",
-      "enum": [
-        "Pedro",
-        "Paco",
-        "Luis"
-      ],
+      "enum": ["Pedro", "Paco", "Luis"],
       "widget": {
-        "type": "kly-autocomplete",
+        "type": "vuec-autocomplete",
         "props": {
           "class": "form-control"
         }
@@ -100,13 +76,9 @@
       "title": "Select",
       "description": "Select one option",
       "type": "string",
-      "enum": [
-        "Pedro",
-        "Paco",
-        "Luis"
-      ],
+      "enum": ["Pedro", "Paco", "Luis"],
       "widget": {
-        "type": "kly-select",
+        "type": "vuec-select",
         "props": {
           "class": "form-control"
         }
@@ -118,14 +90,10 @@
       "type": "array",
       "items": {
         "type": "string",
-        "enum": [
-          "Pedro",
-          "Paco",
-          "Luis"
-        ]
+        "enum": ["Pedro", "Paco", "Luis"]
       },
       "widget": {
-        "type": "kly-select",
+        "type": "vuec-select",
         "props": {
           "class": "form-control",
           "multiple": true

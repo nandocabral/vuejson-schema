@@ -7,12 +7,9 @@
       "title": "Radio",
       "description": "Enter your radio",
       "type": "string",
-      "enum": [
-        "Male",
-        "Female"
-      ],
+      "enum": ["Male", "Female"],
       "widget": {
-        "type": "kly-radio"
+        "type": "vuec-radio"
       }
     },
     "textarea": {
@@ -20,7 +17,7 @@
       "description": "Enter your textarea",
       "type": "string",
       "widget": {
-        "type": "kly-textarea",
+        "type": "vuec-textarea",
         "props": {
           "class": "form-control"
         }

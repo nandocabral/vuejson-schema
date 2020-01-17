@@ -1,10 +1,10 @@
 <template>
-  <div :id="`kly-${key}`" class="kly-array">
-    <label class="kly-array__label" v-if="labelable">{{ schema.title }}</label>
+  <div :id="`vuec-${key}`" class="vuec-array">
+    <label class="vuec-array__label" v-if="labelable">{{ schema.title }}</label>
     <div
       v-for="(value, valueKey) in localValue"
       :key="valueKey"
-      class="kly-array__item"
+      class="vuec-array__item"
     >
       <component
         v-for="(schema, schemaKey) in getFieldItem(localSchema, valueKey)"
@@ -18,7 +18,7 @@
       <div v-if="isMultipleable() || isAdditionalItem(valueKey)">
         <button
           type="button"
-          class="kly-array--btn-up"
+          class="vuec-array--btn-up"
           v-if="!isFirstItem(valueKey)"
           @click="moveUpItem(valueKey)"
         >
@@ -26,7 +26,7 @@
         </button>
         <button
           type="button"
-          class="kly-array--btn-down"
+          class="vuec-array--btn-down"
           v-if="!isLastItem(valueKey)"
           @click="moveDownItem(valueKey)"
         >
@@ -34,7 +34,7 @@
         </button>
         <button
           type="button"
-          class="kly-array--btn-delete"
+          class="vuec-array--btn-delete"
           @click="removeItem(valueKey)"
         >
           &times;
@@ -43,7 +43,7 @@
       <hr />
     </div>
     <div>
-      <button type="button" class="kly-array__btn-new" @click="addItem">
+      <button type="button" class="vuec-array__btn-new" @click="addItem">
         &plus;
       </button>
     </div>
@@ -54,7 +54,7 @@
 import { get } from "lodash";
 
 export default {
-  name: "KlyArray",
+  name: "vuecArray",
   props: {
     schema: {
       type: Object,
@@ -83,13 +83,13 @@ export default {
     },
     getFieldType(schema) {
       if (schema.type === "object" || schema.type === "array") {
-        return `kly-${schema.type}`;
+        return `vuec-${schema.type}`;
       }
       let type = get(schema, "widget.type");
       if (type) {
-        return type.startsWith("kly") ? type : "kly-any";
+        return type.startsWith("vuec") ? type : "vuec-any";
       }
-      return "kly-input";
+      return "vuec-input";
     },
     addItem() {
       this.localValue.push(null);

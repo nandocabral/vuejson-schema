@@ -1,23 +1,22 @@
 <template>
-  <div :id="`kly-${key}`" class="kly-select">
-    <label class="kly-select-label" :for="key" v-if="labelable">
-      {{ schema.title }}
-    </label>
-    <select
-      ref="select"
-      :id="key"
-      :name="key"
-      v-model="localValue"
-      v-bind="widgetProps"
-    >
-      <option v-if="!this.isMultiple()" value disabled>...</option>
-      <option v-for="option in getItems()" :key="option">
+  <div :id="`vuec-${key}`" class="vuec-field">
+    <label class="vuec-field-label" v-if="labelable">{{ schema.title }}</label>
+    <div class="vuec-radio" v-for="option in schema.enum" :key="option">
+      <label class="vuec-radio-label" :for="`${key}-${option}`">
+        <input
+          type="radio"
+          :id="`${key}-${option}`"
+          :name="key"
+          v-model="localValue"
+          :value="option"
+          v-bind="widgetProps"
+        />
         {{ option }}
-      </option>
-    </select>
-    <span class="kly-select-help" v-if="helpable">
-      {{ schema.description }}
-    </span>
+      </label>
+    </div>
+    <span class="vuec-field-help" v-if="helpable">{{
+      schema.description
+    }}</span>
   </div>
 </template>
 
@@ -25,26 +24,19 @@
 import { get } from "lodash";
 
 export default {
-  name: "klySelect",
+  name: "vuecRadio",
   props: {
     schema: {
       type: Object,
       default: () => ({})
     },
     value: {
-      type: [String, Array]
-      // default: ''
+      type: String
     }
   },
   methods: {
     get(path, defaultValue = undefined) {
       return get(this, `schema.${path}`, defaultValue);
-    },
-    isMultiple() {
-      return this.schema.type == "array";
-    },
-    getItems() {
-      return this.get("enum", this.get("items.enum"));
     }
   },
   computed: {
@@ -68,7 +60,7 @@ export default {
     },
     localValue: {
       get() {
-        return this.value || (this.isMultiple() ? [] : "");
+        return this.value || "";
       },
       set(newValue) {
         this.$emit("update", newValue);

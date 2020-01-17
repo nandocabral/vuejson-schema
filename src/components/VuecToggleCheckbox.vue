@@ -1,19 +1,19 @@
 <template>
   <div>
-    <label class="kly-field-label" style="display:block;" v-if="labelable">
+    <label class="vuec-field-label" style="display:block;" v-if="labelable">
       {{ schema.title }}
     </label>
-    <label class="kly-toggle-switch kly-checkbox-label" :for="key">
+    <label class="vuec-toggle-switch vuec-checkbox-label" :for="key">
       <input
         type="checkbox"
         :id="key"
         :name="key"
-        class="kly-toggle-switch__input"
+        class="vuec-toggle-switch__input"
         v-model="localValue"
         v-bind="widgetProps"
       />
       {{ schema.description }}
-      <span class="kly-toggle-switch__slider kly-toggle-switch__round" />
+      <span class="vuec-toggle-switch__slider vuec-toggle-switch__round" />
     </label>
   </div>
 </template>
@@ -22,7 +22,7 @@
 import { get } from "lodash";
 
 export default {
-  name: "klyToggleCheckbox",
+  name: "vuecToggleCheckbox",
   props: {
     schema: {
       type: Object,
@@ -86,18 +86,18 @@ export default {
 </script>
 
 <style scoped>
-.kly-toggle-switch {
+.vuec-toggle-switch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
 }
-.kly-toggle-switch__input {
+.vuec-toggle-switch__input {
   opacity: 0;
   width: 0;
   height: 0;
 }
-.kly-toggle-switch__slider {
+.vuec-toggle-switch__slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -108,7 +108,7 @@ export default {
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-.kly-toggle-switch__slider:before {
+.vuec-toggle-switch__slider:before {
   position: absolute;
   content: "";
   height: 26px;
@@ -119,21 +119,21 @@ export default {
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
-.kly-toggle-switch__input:checked + .kly-toggle-switch__slider {
+.vuec-toggle-switch__input:checked + .vuec-toggle-switch__slider {
   background-color: #2196f3;
 }
-.kly-toggle-switch__input:focus + .kly-toggle-switch__slider {
+.vuec-toggle-switch__input:focus + .vuec-toggle-switch__slider {
   box-shadow: 0 0 1px #2196f3;
 }
-.kly-toggle-switch__input:checked + .kly-toggle-switch__slider:before {
+.vuec-toggle-switch__input:checked + .vuec-toggle-switch__slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
-.kly-toggle-switch__slider.kly-toggle-switch__round {
+.vuec-toggle-switch__slider.vuec-toggle-switch__round {
   border-radius: 34px;
 }
-.kly-toggle-switch__slider.kly-toggle-switch__round:before {
+.vuec-toggle-switch__slider.vuec-toggle-switch__round:before {
   border-radius: 50%;
 }
 </style>

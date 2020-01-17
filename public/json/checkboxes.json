@@ -7,12 +7,9 @@
       "title": "Checkbox",
       "description": "Something desc ...",
       "type": "string",
-      "enum": [
-        "Male",
-        "Female"
-      ],
+      "enum": ["Male", "Female"],
       "widget": {
-        "type": "kly-checkbox",
+        "type": "vuec-checkbox",
         "props": {}
       }
     },
@@ -21,7 +18,7 @@
       "description": "Are you agree?",
       "type": "string",
       "widget": {
-        "type": "kly-checkbox",
+        "type": "vuec-checkbox",
         "props": {
           "true-value": "yes",
           "false-value": "not"
@@ -32,7 +29,7 @@
       "title": "Checkbox toggle",
       "type": "string",
       "widget": {
-        "type": "kly-toggle-checkbox",
+        "type": "vuec-toggle-checkbox",
         "props": {
           "true-value": true,
           "false-value": false

@@ -1,5 +1,5 @@
 export default {
-  name: "kly-any",
+  name: "vuec-any",
   props: {
     schema: {
       type: Object,

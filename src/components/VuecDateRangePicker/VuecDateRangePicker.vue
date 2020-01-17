@@ -1,6 +1,6 @@
 <template>
-  <div :id="`kly-${key}`" class="kly-input">
-    <label class="kly-input-label" :for="key" v-if="labelable">
+  <div :id="`vuec-${key}`" class="vuec-input">
+    <label class="vuec-input-label" :for="key" v-if="labelable">
       {{ schema.title }}
     </label>
     <input
@@ -12,7 +12,7 @@
       v-bind="widgetProps"
       autocomplete="off"
     />
-    <span class="kly-input-help" v-if="helpable">
+    <span class="vuec-input-help" v-if="helpable">
       {{ schema.description }}
     </span>
   </div>
@@ -35,7 +35,7 @@ import "daterangepicker/daterangepicker.css";
 import $ from "jquery";
 
 export default {
-  name: "KlyDateRangePicker",
+  name: "vuecDateRangePicker",
   props: {
     schema: {
       required: true,
@@ -72,8 +72,8 @@ export default {
     },
     localValue: {
       get() {
+        let value = "";
         if (this.value !== undefined && this.value.length > 0) {
-          let value = "";
           if (this.isSingleDatePicker) {
             value = this.value;
           } else {
@@ -83,8 +83,8 @@ export default {
               this.value[1]
             ].join("");
           }
-          return value;
         }
+        return value;
       },
       set(newValue) {
         this.$emit("update", newValue);

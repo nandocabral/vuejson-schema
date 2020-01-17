@@ -1,9 +1,11 @@
 <template>
-  <div :id="`kly-${key}`" class="kly-field">
+  <div :id="`vuec-${key}`" class="vuec-field">
     <template v-if="schema.enum">
-      <label class="kly-field-label" v-if="labelable">{{ schema.title }}</label>
-      <div class="kly-checkbox" v-for="option in schema.enum" :key="option">
-        <label class="kly-checkbox-label" :for="`${key}-${option}`">
+      <label class="vuec-field-label" v-if="labelable">{{
+        schema.title
+      }}</label>
+      <div class="vuec-checkbox" v-for="option in schema.enum" :key="option">
+        <label class="vuec-checkbox-label" :for="`${key}-${option}`">
           <input
             type="checkbox"
             :id="`${key}-${option}`"
@@ -15,14 +17,16 @@
           {{ option }}
         </label>
       </div>
-      <span class="kly-field-help" v-if="helpable">{{
+      <span class="vuec-field-help" v-if="helpable">{{
         schema.description
       }}</span>
     </template>
     <template v-else>
-      <label class="kly-field-label" v-if="labelable">{{ schema.title }}</label>
-      <div class="kly-checkbox">
-        <label class="kly-checkbox-label" :for="key">
+      <label class="vuec-field-label" v-if="labelable">{{
+        schema.title
+      }}</label>
+      <div class="vuec-checkbox">
+        <label class="vuec-checkbox-label" :for="key">
           <input
             type="checkbox"
             :id="key"
@@ -43,7 +47,7 @@
 import { get } from "lodash";
 
 export default {
-  name: "klyCheckbox",
+  name: "vuecCheckbox",
   props: {
     schema: {
       type: Object,

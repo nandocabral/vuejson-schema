@@ -1,6 +1,6 @@
 <template>
-  <div :id="`kly-${key}`" class="kly-input">
-    <label class="kly-input-label" :for="key" v-if="labelable">
+  <div :id="`vuec-${key}`" class="vuec-input">
+    <label class="vuec-input-label" :for="key" v-if="labelable">
       {{ schema.title }}
     </label>
     <input
@@ -13,7 +13,7 @@
       @focus="onfocus"
       autocomplete="off"
     />
-    <span class="kly-input-help" v-if="helpable">
+    <span class="vuec-input-help" v-if="helpable">
       {{ schema.description }}
     </span>
   </div>
@@ -27,7 +27,7 @@ import defaults from "./options.js";
 import { format, unformat, setCursor } from "./utils.js";
 
 export default {
-  name: "KlyMoney",
+  name: "vuecMoney",
   props: {
     schema: {
       required: true,

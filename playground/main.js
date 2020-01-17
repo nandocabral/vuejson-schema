@@ -1,8 +1,8 @@
 import Vue from "vue";
 import App from "./App.vue";
-import KlayComponents from "../src/main.js";
+import VuecComponents from "../src/main.js";
 
-Vue.use(KlayComponents);
+Vue.use(VuecComponents);
 
 Vue.config.productionTip = false;
 

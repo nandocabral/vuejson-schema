@@ -1,6 +1,6 @@
 import * as components from "./components";
 
-const KlayComponents = {
+const VuecComponents = {
   install(Vue = {}) {
     for (const componentName in components) {
       const component = components[componentName];
@@ -9,8 +9,8 @@ const KlayComponents = {
   }
 };
 
-export default KlayComponents;
+export default VuecComponents;
 
 if (typeof window !== "undefined" && window.Vue) {
-  window.Vue.use(KlayComponents);
+  window.Vue.use(VuecComponents);
 }

@@ -16,7 +16,7 @@
           :schema="el"
         />
       </div>
-      <div>
+      <div class="vuec-object-array--actionbutton">
         <button type="button" @click="addItem">
           &plus;
         </button>
@@ -26,11 +26,8 @@
       <table class="vuec-object-array--table">
         <thead class="vuec-object-array--table-head">
           <tr>
-            <th
-              v-for="(head, headKey) in schema.items.properties"
-              :key="`th_${headKey}`"
-            >
-              {{ head.title }}
+            <th v-for="(head, headKey) in tableHeaders" :key="`th_${headKey}`">
+              {{ head.title || head }}
             </th>
             <th></th>
           </tr>
@@ -38,10 +35,10 @@
         <tbody class="vuec-object-array--table-head">
           <tr v-for="(value, valueKey) in localValue" :key="`tr_${valueKey}`">
             <td
-              v-for="(obj, key, i) in schema.items.properties"
+              v-for="(obj, key, i) in tableHeaders"
               :key="`value_${i}_${key}`"
             >
-              {{ value[key] }}
+              {{ value[typeof obj === "object" ? key : obj] }}
             </td>
             <td>
               <button type="button" @click="removeItem(valueKey)">
@@ -146,6 +143,10 @@ export default {
       set(newValue) {
         this.$emit("update", newValue);
       }
+    },
+    tableHeaders() {
+      console.log(this.schema.items.headers);
+      return this.schema.items.headers || this.schema.items.properties;
     }
   },
   created() {

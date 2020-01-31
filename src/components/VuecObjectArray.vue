@@ -82,6 +82,7 @@ export default {
       this.$emit("created", this.memoizeValue);
     },
     onUpdate(name, newValue) {
+      this.$emit("inputChange", { name, value: newValue });
       this.$set(this.model, name, newValue);
     },
     getFieldType(schema) {
@@ -141,6 +142,7 @@ export default {
         return this.value || [];
       },
       set(newValue) {
+        this.$emit("inputChange", newValue);
         this.$emit("update", newValue);
       }
     },

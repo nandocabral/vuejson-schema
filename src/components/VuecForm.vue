@@ -8,6 +8,7 @@
       :value="localValue[subSchemaKey]"
       @created="onCreated(subSchemaKey, $event)"
       @update="onUpdate(subSchemaKey, $event)"
+      @inputChange="internalModelChange"
       :schema="subSchema"
     />
     <slot />
@@ -37,8 +38,11 @@ export default {
     },
     onUpdate(name, newValue) {
       this.$set(this.value, name, newValue);
-      this.$emit("inputChange", { name, value: newValue });
+
       this.localValue = cloneDeep(this.value);
+    },
+    internalModelChange(value) {
+      this.$emit("modelChange", value);
     },
     getFieldType(schema) {
       let type = get(schema, "widget.type");

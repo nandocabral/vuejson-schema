@@ -145,7 +145,6 @@ export default {
       }
     },
     tableHeaders() {
-      console.log(this.schema.items.headers);
       return this.schema.items.headers || this.schema.items.properties;
     }
   },

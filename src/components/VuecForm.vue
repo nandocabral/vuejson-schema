@@ -37,6 +37,7 @@ export default {
     },
     onUpdate(name, newValue) {
       this.$set(this.value, name, newValue);
+      this.$emit("inputChange", { name, value: newValue });
       this.localValue = cloneDeep(this.value);
     },
     getFieldType(schema) {

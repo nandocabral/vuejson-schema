@@ -64,7 +64,7 @@
           {{ imageName }}
         </p>
       </div>
-      <div v-if="urlImage" class="vuec-single-image__box">
+      <div class="vuec-single-image__box">
         <div
           v-if="imageName.includes('.pdf')"
           class="vuec-single-image__elcontainer"
@@ -81,14 +81,8 @@
             />
           </svg>
         </div>
-        <div
-          v-else
-          class="vuec-single-image__elcontainer"
-          :style="{ 'background-image': `url(${urlGet}${urlImage})` }"
-        >
-          <p style="text-align: center;">
-            Actual
-          </p>
+        <div v-else class="vuec-single-image__elcontainer">
+          <canvas id="valueImage" ref="valueImage"></canvas>
         </div>
       </div>
     </div>
@@ -130,6 +124,15 @@ export default {
         return edit;
       }
     }
+  },
+  mounted() {
+    const canvas = this.$refs.valueImage;
+    const ctx = canvas.getContext("2d");
+    const image = new Image();
+    image.onload = () => {
+      ctx.drawImage(image, 0, 0);
+    };
+    image.src = this.value;
   },
   methods: {
     get(path, defaultValue = undefined) {
@@ -205,12 +208,13 @@ export default {
   flex-direction: row;
   -ms-flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
 }
 .vuec-single-image__box {
   -webkit-box-flex: 1 1 0%;
   -moz-box-flex: 1 1 0%;
   flex: 1 1 0%;
+  margin-right: 1em;
 }
 .vuec-single-image__name {
   margin-top: 0.8rem;
@@ -245,6 +249,7 @@ export default {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+  overflow: hidden;
 }
 .vuec-single-image__input {
   display: none;

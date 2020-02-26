@@ -78,6 +78,7 @@ export default {
       this.$emit("created", this.memoizeValue);
     },
     onUpdate(name, newValue) {
+      this.$emit("inputChange", { name, value: newValue });
       this.$set(this.memoizeValue, name, newValue);
       this.localValue = this.memoizeValue;
     },
@@ -166,6 +167,7 @@ export default {
           : this.value.slice(0, this.schema.items.length);
       },
       set(newValue) {
+        this.$emit("inputChange", newValue);
         this.$emit("update", newValue);
       }
     }

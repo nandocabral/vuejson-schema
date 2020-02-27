@@ -12,7 +12,7 @@
         "props": {
           "archiving": {
             "getFileUrl": "http://newton.klayware.com/colima/archivos:obtener?file=",
-            "typesFiles": ["pdf"]
+            "typesFiles": ["jpg", "png"]
           }
         }
       }

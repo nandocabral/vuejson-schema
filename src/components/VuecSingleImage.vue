@@ -151,7 +151,13 @@ export default {
       return new Promise((resolve, reject) => {
         const reader = new FileReader();
         reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result);
+        reader.onload = () => {
+          const img = new Image();
+          img.onload = () => {
+            img.width = 200;
+          };
+          resolve(reader.result);
+        };
         reader.onerror = error => reject(error);
       });
     },

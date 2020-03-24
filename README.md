@@ -1,4 +1,4 @@
-# vue-klay-components
+# vue-json-components
 
 ## Project setup
 ```

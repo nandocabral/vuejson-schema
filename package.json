@@ -11,9 +11,9 @@
     "docs:build": "vuepress build docs"
   },
   "dependencies": {
+    "cleave.js": "^1.5.3",
     "core-js": "^2.6.5",
     "daterangepicker": "^3.0.5",
-    "cleave.js": "^1.5.3",
     "dropzone": "^5.5.1",
     "jquery": "^3.4.1",
     "lodash": "^4.17.15",

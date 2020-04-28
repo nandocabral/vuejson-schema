@@ -27,18 +27,15 @@
         <thead class="vuec-object-array--table-head">
           <tr>
             <th v-for="(head, headKey) in tableHeaders" :key="`th_${headKey}`">
-              {{ head.title || head }}
+              {{ head.text }}
             </th>
             <th></th>
           </tr>
         </thead>
         <tbody class="vuec-object-array--table-head">
           <tr v-for="(value, valueKey) in localValue" :key="`tr_${valueKey}`">
-            <td
-              v-for="(obj, key, i) in tableHeaders"
-              :key="`value_${i}_${key}`"
-            >
-              {{ value[typeof obj === "object" ? key : obj] }}
+            <td v-for="(obj, key) in tableHeaders" :key="`value_${key}`">
+              {{ value[obj.key] }}
             </td>
             <td>
               <button type="button" @click="removeItem(valueKey)">
@@ -147,7 +144,15 @@ export default {
       }
     },
     tableHeaders() {
-      return this.schema.items.headers || this.schema.items.properties;
+      return (
+        this.schema.items.headers ||
+        Object.keys(this.schema.items.properties).map(key => {
+          return {
+            key,
+            text: key.charAt(0).toUpperCase() + key.slice(1)
+          };
+        })
+      );
     }
   },
   created() {

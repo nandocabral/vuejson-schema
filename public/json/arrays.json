@@ -137,7 +137,7 @@
             }
           }
         },
-        "headers": ["age"]
+        "headers": [{ "key": "age", "text": "Age" }]
       }
     }
   }

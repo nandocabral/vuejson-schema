@@ -79,8 +79,8 @@ export default {
     },
     onUpdate(name, newValue) {
       this.$emit("inputChange", { name, value: newValue });
+      this.memoizeValue = this.localValue;
       this.$set(this.memoizeValue, name, newValue);
-      this.localValue = this.memoizeValue;
     },
     getFieldType(schema) {
       if (schema.type === "object" || schema.type === "array") {

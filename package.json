@@ -15,7 +15,7 @@
     "core-js": "^2.6.5",
     "daterangepicker": "^3.0.5",
     "dropzone": "^5.5.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "lodash": "^4.17.15",
     "promise-queue": "^2.2.5",
     "select2": "^4.0.9",
